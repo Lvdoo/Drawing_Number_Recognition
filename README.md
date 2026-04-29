@@ -1,4 +1,4 @@
-# ✍️ Number Recognition After Drawing
+# ✍️ # ✍️ Drawing Number Recognition
 
 A simple and interactive Python application that recognizes handwritten digits drawn by the user in real time.
 
@@ -10,7 +10,7 @@ The project combines a Convolutional Neural Network (CNN) trained on the MNIST d
 
 - Draw a digit (0–9) directly on a canvas  
 - Automatic image preprocessing  
-- Digit prediction using a trained CNN model  
+- Real-time prediction (or on button click) using a trained CNN model  
 - Simple and intuitive UI  
 - Clear canvas functionality  
 - Includes both CNN and MLP implementations  
@@ -88,7 +88,7 @@ python main.py
 ```
 
 1. Draw a number on the canvas
-2. Click PREDICTION
+2. Click PREDICTION or use LIVE MODE
 3. The model outputs the predicted digit
 
 ---
@@ -97,7 +97,7 @@ python main.py
 
 ### Step-by-step pipeline:
 1. User draws a digit on the Tkinter canvas
-2. The drawing is captured as an image
+2. The drawing is converted into an image
 3. Preprocessing is applied:
     - Convert to grayscale
     - Detect drawing area (bounding box)
@@ -105,7 +105,8 @@ python main.py
     - Resize to 28×28 pixels
     - Normalize (same as MNIST dataset)
 4. The processed image is passed into the CNN
-5. The model predicts the digit (0–9)
+5. The model outputs a probability for each digit
+6. The predicted digit is displayed (0–9)
 
 ### 🧠 Model Architecture (CNN)
 
@@ -147,19 +148,19 @@ python number_recognition_MLP.py
 - The model is trained on MNIST → it expects clean, centered digits
 - Performance drops if:
     - Drawing is too small or off-center
-    - Stroke is too thin
+    - Stroke is too thin or irregular
     - Style differs from MNIST
 
 ### Common confusions:
 4 ↔ 9
 3 ↔ 8
 1 ↔ 7
+1 ↔ 4
 
 ---
 
 ## 📈 Possible Improvements
 
-- Real-time prediction while drawing
 - Display prediction confidence (softmax probabilities)
 - Improve preprocessing (centering, thickness normalization)
 - Add custom dataset (your own handwriting)
